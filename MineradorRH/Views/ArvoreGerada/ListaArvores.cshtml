@@ -1,0 +1,56 @@
+﻿@model List<MineradorRH.Models.ArvoreGerada>
+@{
+    ViewBag.Title = "Lista de árvore geradas";
+    Layout = null;
+}
+
+<hr />
+<h2>Árvores geradas</h2>
+<div class="container">
+    <table id="table"
+           data-toggle="table"
+           data-sort-name="dtGeracao"
+           data-pagination="true"
+           data-search="true"
+           data-sort-order="desc">
+        <thead>
+            <tr>
+                <th></th>
+                <th data-sortable="true" data-field="dtGeracao">
+                    @Html.DisplayName("Data geração")
+                </th>
+                <th data-sortable="true" data-field="usuarioGeracao">
+                    @Html.DisplayName("Usuário geração")
+                </th>
+                <th data-sortable="true" data-field="classeMeta">
+                    @Html.DisplayName("Classe meta")
+                </th>
+            </tr>
+        </thead>
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td style="width: 110px">
+                    <a title="Visualizar gráfico" class="glyphicon glyphicon-search" href="@Url.Action("Details", new { arvoreGeradaId = Model[i].ID })" style="cursor: pointer"></a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem[i].DataGeracao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem[i].UsuarioGeracao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => modelItem[i].ClasseMeta)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+@section Scripts {
+
+<script>
+    var $table = $('#table');
+    $(function () {
+    });
+</script>
+}

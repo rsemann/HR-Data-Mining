@@ -1,0 +1,56 @@
+﻿@model MineradorRH.Models.ArvoreGerada
+
+@{
+    ViewBag.Title = "Árvore gerada";
+}
+
+<div style="width:700px;float:left">
+    <h2>
+        @if (Model.ConfiguracaoArvore != null)
+        { @Model.ConfiguracaoArvore.Nome;
+        }
+    </h2>
+    <h3>Clase meta: @Model.ClasseMeta</h3>
+    <h3>Data geração: @Model.DataGeracao</h3>
+    <h3>Usuário geração: @Model.UsuarioGeracao</h3>
+</div>
+<div style="width:600px;height:210px;float:left">
+    <h3>Descrição</h3>
+    @Model.ConfiguracaoArvore.Descricao
+</div>
+<a class="btn btn-info" style="margin-top:176px" href="@Url.Action("Details", "ConfiguracaoArvore", new { id = Model.ConfiguracaoArvoreID })">Voltar</a>
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="#grafico" role="tab" data-toggle="tab">Gráfico</a></li>
+    <li><a href="#arv" role="tab" data-toggle="tab">Árvore</a></li>
+    @if (!string.IsNullOrEmpty(Model.JsonNuvemPalavras))
+    {
+        <li><a href="#nuv" role="tab" data-toggle="tab">Nuvem palavras</a></li>}
+</ul>
+<div class="tab-content" style="height: 100%;padding-top: 5px">
+    <div class="tab-pane fade in active" id="grafico">
+        <div id="main" style="width:100%!important">
+            <div id="sequence" style="width:100%!important"></div>
+            <div id="chart">
+                @Html.HiddenFor(m => m.ID, htmlAttributes: new { @id = "ArvoreGerada" })
+                <div id="explanation" style="visibility: hidden;">
+                    <span id="percentage"></span><br />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="arv">
+        <div id="arvore"></div>
+    </div>
+    @if (!string.IsNullOrEmpty(Model.JsonNuvemPalavras))
+    {
+        <div class="tab-pane fade" id="nuv">
+            <div id="nuvem"></div>
+        </div>}
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript" src="~/Scripts/d3.v3.min.js"></script>
+<script src="~/Scripts/wordcloud.js"></script>
+<script src="~/Scripts/chart.js"></script>
+<script src="~/Scripts/treeChart.js"></script>
+<script src="~/Scripts/nuvemPalavras.js"></script>

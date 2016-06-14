@@ -1,0 +1,17 @@
+﻿@using MineradorRH.Models;
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Alterar senha";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.Partial("_ChangePasswordPartial")
+    </div>
+</div>
+<p class="text-success">@ViewBag.StatusMessage</p>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

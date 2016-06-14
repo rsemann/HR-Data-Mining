@@ -1,0 +1,79 @@
+﻿@using MineradorRH.Extensions
+@model IList<MineradorRH.Models.ConsultaPmml>
+
+@{
+    ViewBag.Title = "Realizar consulta PMML";
+}
+
+<h2>Realizar consulta PMML</h2>
+<hr />
+@using (Html.BeginForm("Consultar", "ArvoreGerada", FormMethod.Post, new { id = "myform", name = "myform", @style = "width:450px;float:left;" }))
+{
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            if (Model[i].ClasseMeta)
+            {
+                <div class="form-group">
+                    @Html.HiddenFor(model => Model[i].ConfiguracaoArvoreID)
+                    @Html.HiddenFor(model => Model[i].Nome)
+                    @Html.HiddenFor(model => Model[i].Label)
+                    @Html.HiddenFor(model => Model[i].ClasseMeta)
+                    @Html.HiddenFor(model => Model[i].ArvoreGeradaId)
+                    <h3>Classe meta: @Model[i].Label</h3>
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    @Html.HiddenFor(model => Model[i].ConfiguracaoArvoreID)
+                    @Html.HiddenFor(model => Model[i].Nome)
+                    @Html.HiddenFor(model => Model[i].Label)
+                    @Html.HiddenFor(model => Model[i].ClasseMeta)
+                    @Html.HiddenFor(model => Model[i].ArvoreGeradaId)
+                    @Html.Label(Model[i].Label, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-8">
+                        @if (!string.IsNullOrEmpty(Model[i].Valor) && (Model[Model.Count - 1].Nome != Model[i].Nome ||
+                            (Model[Model.Count - 1].Nome == Model[i].Nome && Html.ViewData.ModelState.IsValid)))
+                        {
+                            @Html.EditorFor(model => Model[i].Valor, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                        }
+                        else
+                        {
+                            @Html.EditorFor(model => Model[i].Valor, new { htmlAttributes = new { @class = "form-control" } })
+                        }
+                        @Html.ValidationMessageFor(model => Model[i].Label, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+
+    <h1>@ViewBag.Resultado</h1>
+
+    <div>
+        @if (ViewBag.PossuiNosFilhos == true)
+        {
+            if (string.IsNullOrEmpty(ViewBag.Resultado))
+            {
+                <input type="submit" value="Gerar probabilidade" class="btn btn-success" />
+            }
+            else
+            {
+                <a class="btn btn-info" href="@Url.Action("Avancar", "ArvoreGerada")">Avançar</a>
+            }
+        }
+        <a class="btn btn-default" href="@Url.Action("Consultas", "ArvoreGerada")">Cancelar</a>
+    </div>
+
+
+}
+<div id="arvoreConsulta" style="float:left;padding-top:30px;">
+</div>
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript" src="~/Scripts/d3.v3.min.js"></script>
+<script src="~/Scripts/arvoreConsulta.js"></script>

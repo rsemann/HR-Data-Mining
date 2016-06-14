@@ -1,0 +1,65 @@
+﻿@using MineradorRH.Extensions
+@model IEnumerable<MineradorRH.Models.ArvoreGerada>
+
+@{
+    ViewBag.Title = "PMML";
+}
+
+<h2>PMML</h2>
+<hr />
+
+<div class="container">
+    <table id="table"
+           data-toggle="table"
+           data-sort-name="dtGeracao"
+           data-pagination="true"
+           data-search="true"
+           data-sort-order="desc">
+        <thead>
+            <tr>
+                <th></th>
+                <th data-sortable="true" data-field="dtGeracao">
+                    @Html.DisplayName("Data geração")
+                </th>
+                <th data-sortable="true" data-field="usuarioGeracao">
+                    @Html.DisplayName("Usuário geração")
+                </th>
+                <th data-sortable="true" data-field="arvore">
+                    @Html.DisplayName("Árvore")
+                </th>
+                <th data-sortable="true" data-field="classeMeta">
+                    @Html.DisplayName("Classe meta")
+                </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="width: 110px">
+                    <a title="Realizar consulta" class="glyphicon glyphicon-search" href="@Url.Action("Consultar", "ArvoreGerada", new { arvoreGeradaId = item.ID })" style="cursor: pointer"></a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataGeracao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsuarioGeracao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConfiguracaoArvore.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClasseMeta)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+@section Scripts {
+
+    <script>
+    var $table = $('#table');
+    $(function () {
+    });
+    </script>
+}

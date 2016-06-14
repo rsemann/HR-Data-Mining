@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Criar nova árvore</h1>
+
+<div id="comando" class="telaComando">
+    <textarea id="sql" style="width:100%;min-height:200px"></textarea>
+    <div style="padding-top:20px">
+        <button class="btn btn-info" onclick="buscarDefinicaoCampos()">Gerar estruturar</button>
+    </div>
+</div>
+
+
+<div id="definicoesCampos"></div>

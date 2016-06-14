@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MineradorRH.Models.DicionarioAgrupador>
+
+@{
+    ViewBag.Title = "Dicionário de sinônimos";
+}
+
+<h2>Dicionário de sinônimos</h2>
+<h3>Agrupador: @ViewBag.PalavraAgrupadora.Palavra</h3>
+<hr />
+
+<div class="container">
+    <p style="float: left">
+        <a title="Novo" class="glyphicon glyphicon-plus" href="@Url.Action("Create", new { id = ViewBag.PalavraAgrupadora.ID })" style="cursor: pointer;font-size:18px"></a>
+    </p>
+    <table id="table"
+           data-toggle="table"
+           data-sort-name="palavra"
+           data-pagination="true"
+           data-search="true"
+           data-sort-order="desc">
+        <thead>
+            <tr>
+                <th></th>
+                <th data-sortable="true" data-field="palavra">
+                    @Html.DisplayNameFor(model => model.Palavra)
+                </th>
+                <th data-sortable="true" data-field="palavraSinonimo">
+                    @Html.DisplayNameFor(model => model.PalavraSinonimo)
+                </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="width: 110px">
+                    <a title="Detalhes" class="glyphicon glyphicon-search" href="@Url.Action("Details", new { id = item.ID })" style="cursor: pointer"></a>
+                    <a title="Editar" class="glyphicon glyphicon-edit" href="@Url.Action("Edit", new { id = item.ID })" style="cursor: pointer"></a>
+                    <a title="Deletar" class="glyphicon glyphicon-trash" href="@Url.Action("Delete", new { id = item.ID })" style="cursor: pointer"></a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Palavra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PalavraSinonimo)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div>
+    <a class="btn btn-info" href="@Url.Action("Index", "PalavraAgrupadora")">Voltar</a>
+</div>
+
+@section Scripts {
+
+    <script>
+    var $table = $('#table');
+    $(function () {
+    });
+    </script>
+}

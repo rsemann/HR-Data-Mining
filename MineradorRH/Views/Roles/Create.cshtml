@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Grupo usuário";
+}
+
+<h2>Criar grupo</h2>
+@Html.ActionLink("Gerenciar grupos", "ManageUserRoles")
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.Label("Grupo", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("RoleName", null, new { @class = "form-control" })
+        </div>
+    </div>
+    
+    <div align="right">
+        <input type="submit" value="Salvar" class="btn btn-success" />
+        @Html.ActionLink("Voltar", "Index", "Roles", new { @class = "btn btn-default" })
+    </div>
+}

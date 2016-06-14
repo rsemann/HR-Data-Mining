@@ -1,0 +1,198 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+input,
+select {
+    max-width: 280px;
+}
+
+/* Styles go here */
+
+#main {
+    float: left;
+    width: 1500px;
+}
+
+#sidebar {
+    float: right;
+    width: 500px;
+}
+
+#sequence {
+    width: 500px;
+    height: 70px;
+}
+
+
+    #sequence text {
+        font-size: 12px;
+        font-weight: 600;
+        fill: #fff;
+    }
+
+#chart {
+    position: relative;
+}
+
+    #chart path {
+        stroke: #fff;
+    }
+
+#barchart {
+    position: absolute;
+    top: 260px;
+    left: 750px;
+    width: 300px;
+    text-align: center;
+    color: #666;
+    z-index: -1;
+}
+
+
+    #barchart rect {
+        fill: steelblue;
+    }
+
+    #Barchart text {
+        fill: white;
+        font: 10px sans-serif;
+        text-anchor: middle;
+    }
+
+#explanation {
+    position: absolute;
+    top: 260px;
+    left: 385px;
+    width: 140px;
+    text-align: center;
+    color: #666;
+    z-index: -1;
+}
+
+#percentage {
+    font-size: 28px;
+}
+
+.tela {
+    /*max-width: 1300px;*/
+    min-width: 1300px;
+    height: 100%;
+    display: table;
+    margin: auto;
+    font-family: Segoe UI;
+}
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    resize: none;
+}
+
+.CodeMirror {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    max-height: 300px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.form-login {
+    padding-left: 260px;
+}
+
+.navbar-principal > a {
+    color: white !important;
+}
+
+/* Tela de comando */
+
+#comando {
+    padding-top: 20px;
+}
+
+#divProcessing {
+    z-index: 99999;
+    background-color: rgba(128, 128, 128, .5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+#divProgress {
+    top: 50%;
+    left: 50%;
+    width: 45em;
+    height: 18em;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    position: fixed;
+}
+
+.node {
+    cursor: pointer;
+}
+
+    .node circle {
+        fill: #fff;
+        stroke: steelblue;
+        stroke-width: 1.5px;
+    }
+
+
+
+.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+}
+
+#arvore{
+    margin-top:-50px;
+}
+
+#chart{
+    margin:auto;
+    display:table;
+}
+
+.meuLink
+{
+    fill:none;
+    stroke:#F00;
+    stroke-width:1.5px;
+}
+
+
+

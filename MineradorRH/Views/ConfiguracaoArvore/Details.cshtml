@@ -1,0 +1,83 @@
+﻿@model MineradorRH.Models.ConfiguracaoArvore
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes da árvore</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCriacao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataCriacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Poda)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Poda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sql)
+        </dt>
+
+        <dd>
+            @Html.TextAreaFor(model => model.Sql, new { @id = "sql", @readonly = "readonly" })
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a class="btn btn-info" href="@Url.Action("Index")">Voltar</a>
+    <a class="btn btn-success" href="@Url.Action("Edit", new { id = Model.ID })">Editar</a>
+</p>
+@{
+
+    Html.RenderAction("ListaArvores", "ArvoreGerada", new { configArvore = Model.ID });
+
+}
+
+@section Scripts {
+    <script src="~/Scripts/codemirror.js"></script>
+    <script src="~/Scripts/sql.js"></script>
+    <script>
+    $(document).ready(function () {
+        var mime = 'text/x-sql';
+
+        // get mime type
+        if (window.location.href.indexOf('mime=') > -1) {
+            mime = window.location.href.substr(window.location.href.indexOf('mime=') + 5);
+        }
+
+        window.editor = CodeMirror.fromTextArea(document.getElementById('sql'), {
+            mode: mime,
+            readOnly : true,
+            indentWithTabs: true,
+            smartIndent: true,
+            lineNumbers: true,
+            height:100,
+            matchBrackets: true,
+            autofocus: true
+        });
+    });
+    </script>}

@@ -1,0 +1,49 @@
+﻿@using MineradorRH.Extensions
+@model List<MineradorRH.Models.ConfiguracaoArvore>
+
+@{
+    ViewBag.Title = "Árvore";
+}
+
+<h2>Árvore geradora</h2>
+<hr />
+@{
+    Html.Search("Index", "Comando", "árvore");
+}
+<p style="float: right">
+    <a class="glyphicon glyphicon-plus" data-url="@Url.Action("Create")" style="cursor: pointer" onclick="showModal(@this);"></a>
+</p>
+<table class="table table-striped">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayName("Nome")
+        </th>
+        <th>
+            @Html.DisplayName("Data de criação")
+        </th>
+        <th>
+            @Html.DisplayName("SQL")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width: 110px">
+                <a class="glyphicon glyphicon-search" data-url="@Url.Action("Details")" style="cursor: pointer" onclick="showModal(this, @item.Id);"></a>
+                <a class="glyphicon glyphicon-edit" data-url="@Url.Action("Edit")" style="cursor: pointer" onclick="showModal(this, @item.Id);"></a>
+                <a class="glyphicon glyphicon-trash" data-url="@Url.Action("Delete")" style="cursor: pointer" onclick="showModal(this, @item.Id);"></a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCriacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sql)
+            </td>
+        </tr>
+    }
+</table>

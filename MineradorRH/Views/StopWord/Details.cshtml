@@ -1,0 +1,23 @@
+﻿@model MineradorRH.Models.StopWord
+
+@{
+    ViewBag.Title = "Detalhes palavra irrelevante";
+}
+
+<h2>Detalhes palavra irrelevante (stop word)</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Palavra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Palavra)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a class="btn btn-info" href="@Url.Action("Index")">Voltar</a>
+    <a class="btn btn-success" href="@Url.Action("Edit", new { id = Model.ID })">Editar</a>
+</p>

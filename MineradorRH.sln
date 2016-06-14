@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineradorRH", "MineradorRH\MineradorRH.csproj", "{7A2481F1-EDF1-4E9F-B571-40BA0800B72F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArvoreGeradora", "ArvoreGeradora\ArvoreGeradora.csproj", "{2C7D5040-3595-4975-8CD6-B103A05100B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineradorRHServico", "MineradorRHServico\MineradorRHServico.csproj", "{CD1972CC-B9A2-4629-B692-C6ECDE056BD5}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://rsemann.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ArvoreGeradora\\ArvoreGeradora.csproj
+		SccProjectName1 = ArvoreGeradora
+		SccLocalPath1 = ArvoreGeradora
+		SccProjectUniqueName2 = MineradorRH\\MineradorRH.csproj
+		SccProjectName2 = MineradorRH
+		SccLocalPath2 = MineradorRH
+		SccProjectUniqueName3 = MineradorRHServico\\MineradorRHServico.csproj
+		SccProjectName3 = MineradorRHServico
+		SccLocalPath3 = MineradorRHServico
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A2481F1-EDF1-4E9F-B571-40BA0800B72F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A2481F1-EDF1-4E9F-B571-40BA0800B72F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A2481F1-EDF1-4E9F-B571-40BA0800B72F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A2481F1-EDF1-4E9F-B571-40BA0800B72F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C7D5040-3595-4975-8CD6-B103A05100B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C7D5040-3595-4975-8CD6-B103A05100B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C7D5040-3595-4975-8CD6-B103A05100B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C7D5040-3595-4975-8CD6-B103A05100B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD1972CC-B9A2-4629-B692-C6ECDE056BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD1972CC-B9A2-4629-B692-C6ECDE056BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD1972CC-B9A2-4629-B692-C6ECDE056BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD1972CC-B9A2-4629-B692-C6ECDE056BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

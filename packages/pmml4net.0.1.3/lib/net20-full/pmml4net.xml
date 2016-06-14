@@ -1,0 +1,1080 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>pmml4net</name>
+    </assembly>
+    <members>
+        <member name="T:pmml4net.Predicate">
+            <summary>
+            Description of AbstractPredicate.
+            </summary>
+        </member>
+        <member name="M:pmml4net.Predicate.Evaluate(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Test if predicate is true
+            </summary>
+            <param name="dict"></param>
+        </member>
+        <member name="M:pmml4net.Predicate.ToPredicateResult(System.Boolean)">
+            <summary>
+            Convert boolean in predicate result.
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.Predicate.Or(pmml4net.PredicateResult,pmml4net.PredicateResult)">
+            <summary>
+            Compute OR operator between 2 predicates.
+            </summary>
+            <param name="pred1"></param>
+            <param name="pred2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.Predicate.save(System.Xml.XmlWriter)">
+            <summary>
+            Add predicate to <see cref="T:System.Xml.XmlWriter">XmlWriter</see>.
+            </summary>
+            <param name="writer">writer</param>
+        </member>
+        <member name="T:pmml4net.CompoundPredicate">
+            <summary>
+            Description of CompoundPredicate.
+            </summary>
+        </member>
+        <member name="M:pmml4net.CompoundPredicate.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load Node from XmlNode
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.CompoundPredicate.Evaluate(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Test predicate
+            </summary>
+            <param name="dict"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.CompoundPredicate.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.CompoundPredicate.Predicates">
+            <summary>
+            This attribute of <code>SimplePredicate</code> element is the information to evaluate / compare against.
+            </summary>
+        </member>
+        <member name="T:pmml4net.DataDictionary">
+            <summary>
+            Description of DataDictionary.
+            </summary>
+        </member>
+        <member name="M:pmml4net.DataDictionary.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load data dictionary from xmlnode
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.DataDictionary.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.DataDictionary.DataFields">
+            <summary>
+            The name of a DataField must be unique from other names in the DataDictionary and, with few exceptions, 
+            unique from the names of other fields in the PMML document. For information on the naming and scope of DataFields, see Scope of Fields.
+            </summary>
+        </member>
+        <member name="T:pmml4net.DataField">
+            <summary>
+            Description of DataField.
+            </summary>
+        </member>
+        <member name="M:pmml4net.DataField.#ctor(System.String,pmml4net.Optype,System.String)">
+            <summary>
+            Build data field.
+            </summary>
+            <param name="name"></param>
+            <param name="optype"></param>
+            <param name="dataType"></param>
+        </member>
+        <member name="M:pmml4net.DataField.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load data dictionary from xmlnode
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.DataField.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.DataField.Name">
+            <summary>
+            Name of the data field.
+            </summary>
+        </member>
+        <member name="P:pmml4net.DataField.DisplayName">
+            <summary>
+            The displayName is a string which may be used by applications to refer to that field. 
+            Within the XML document only the value of name is significant. If displayName is not given, then it defaults to 
+            the value of name. For example, there may be a field with name="CSTAGE" and displayName="Customer age". An 
+            application may use the label Customer age, e.g., at the user interface in order to ask for input values. 
+            That is, displayName can be used when the application calls the PMML consumer. Once the consumer has received 
+            the parameters and matched to the MiningFields, the displayName is not relevant anymore. Only name is 
+            significant for internal processing.
+            </summary>
+        </member>
+        <member name="T:pmml4net.DataFieldValue">
+            <summary>
+            Description of DataFieldValue.
+            </summary>
+        </member>
+        <member name="M:pmml4net.DataFieldValue.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="valu"></param>
+            <param name="property"></param>
+        </member>
+        <member name="M:pmml4net.DataFieldValue.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load data dictionary from xmlnode
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.DataFieldValue.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="T:pmml4net.FalsePredicate">
+            <summary>
+            Description of FalsePredicate.
+            
+            For FalsePredicate, always returns false.
+            </summary>
+        </member>
+        <member name="M:pmml4net.FalsePredicate.Evaluate(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Evaluate the predicate
+            </summary>
+            <param name="dict"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.FalsePredicate.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="T:pmml4net.FieldUsageType">
+            <summary>
+            Description of FieldUsageType.
+            </summary>
+        </member>
+        <member name="F:pmml4net.FieldUsageType.Active">
+            <summary>
+            Field used as input (independent field).
+            </summary>
+        </member>
+        <member name="F:pmml4net.FieldUsageType.Predicted">
+            <summary>
+            Field whose value is predicted by the model.
+            </summary>
+        </member>
+        <member name="F:pmml4net.FieldUsageType.Supplementary">
+            <summary>
+            Field holding additional descriptive information. Supplementary fields are not required to apply a model. 
+            They are provided as additional information for explanatory purpose, though. When some field has gone through 
+            preprocessing transformations before a model is built, then an additional supplementary field is typically used 
+            to describe the statistics for the original field values.
+            </summary>
+        </member>
+        <member name="T:pmml4net.Header">
+            <summary>
+            Description of Header.
+            </summary>
+        </member>
+        <member name="M:pmml4net.Header.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.Header.Copyright">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:pmml4net.MiningField">
+            <summary>
+            Description of MiningField.
+            </summary>
+        </member>
+        <member name="M:pmml4net.MiningField.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:pmml4net.MiningField.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load mining field from xmlnode
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.MiningField.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.MiningField.Name">
+            <summary>
+            Symbolic name of field, must refer to a field in the scope of the parent of the MiningSchema's model element.
+            
+            If the DataDictionary defines a displayName for a certain field, still the attribute name is used for matching 
+            the input parameters to the internal formulas. displayName allows using human readable names at the interface 
+            while using artificial identifiers within the semantics of model.
+            </summary>
+        </member>
+        <member name="P:pmml4net.MiningField.UsageType">
+             <summary>
+             usageType
+            
+             active: field used as input (independent field).
+             predicted: field whose value is predicted by the model.
+             supplementary: field holding additional descriptive information. Supplementary fields are not required to apply a model. 
+             They are provided as additional information for explanatory purpose, though. When some field has gone through 
+             preprocessing transformations before a model is built, then an additional supplementary field is typically used 
+             to describe the statistics for the original field values.
+             group: field similar to the SQL GROUP BY. For example, this is used by AssociationModel and SequenceModel to group 
+             items into transactions by customerID or by transactionID.
+             order: This field defines the order of items or transactions and is currently used in SequenceModel and TimeSeriesModel. 
+             Similarly to group, it is motivated by the SQL syntax, namely by the ORDER BY statement.
+             frequencyWeight and analysisWeight: These fields are not needed for scoring, but provide very important information 
+             on how the model was built. Frequency weight usually has positive integer values and is sometimes called "replication 
+             weight". Its values can be interpreted as the number of times each record appears in the data. Analysis weight can 
+             have fractional positive values, it could be used for regression weight in regression models or for case weight in 
+             trees, etc. It can be interpreted as different importance of the cases in the model. Counts in ModelStats and 
+             Partitions can be computed using frequency weight, mean and standard deviation values can be computed using both 
+             weights.
+             
+             The definition of predicted fields in the MiningSchema is not required and it does not have an impact on the scoring 
+             results. But it is very useful because it gives a user a first hint about the detailed results that can be computed by the model.
+             </summary>
+        </member>
+        <member name="T:pmml4net.MiningFunction">
+            <summary>
+            Description of MiningFunction.
+            </summary>
+        </member>
+        <member name="F:pmml4net.MiningFunction.AssociationRules">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:pmml4net.MiningFunction.Sequences">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:pmml4net.MiningFunction.Classification">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:pmml4net.MiningFunction.Regression">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:pmml4net.MiningFunction.Clustering">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:pmml4net.MiningFunction.TimeSeries">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:pmml4net.MiningFunction.Mixed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:pmml4net.MiningModel">
+            <summary>
+            Description of MiningModel.
+            </summary>
+        </member>
+        <member name="T:pmml4net.ModelElement">
+            <summary>
+            Description of ModelElement.
+            
+            modelName: the value in modelName identifies the model with a unique name in the context of the PMML file. 
+            This attribute is not required. Consumers of PMML models are free to manage the names of the models at their discretion.
+            
+            functionName and algorithmName describe the kind of mining model, e.g., whether it is intended to be used for clustering 
+            or for classification. The algorithm name is free-type and can be any description for the specific algorithm that 
+            produced the model. This attribute is for information only.
+            </summary>
+        </member>
+        <member name="M:pmml4net.ModelElement.Score(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Score the model.
+            </summary>
+            <param name="dict">Data input</param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.ModelElement.save(System.Xml.XmlWriter)">
+            <summary>
+            Add ModelElement to <see cref="T:System.Xml.XmlWriter">XmlWriter</see>.
+            </summary>
+            <param name="writer">writer</param>
+        </member>
+        <member name="M:pmml4net.ModelElement.MiningFunctionToString(pmml4net.MiningFunction)">
+            <summary>
+            Convert MiningFunction to string
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="P:pmml4net.ModelElement.ModelName">
+            <summary>
+            Identifies the model with a unique name in the context of the PMML file.
+            This attribute is not required. Consumers of PMML models are free to manage the names of the models at their discretion.
+            </summary>
+        </member>
+        <member name="P:pmml4net.ModelElement.FunctionName">
+            <summary>
+            Identifies the model with a unique name in the context of the PMML file.
+            This attribute is not required. Consumers of PMML models are free to manage the names of the models at their discretion.
+            </summary>
+        </member>
+        <member name="P:pmml4net.ModelElement.AlgorithmName">
+            <summary>
+            Identifies the model with a unique name in the context of the PMML file.
+            This attribute is not required. Consumers of PMML models are free to manage the names of the models at their discretion.
+            </summary>
+        </member>
+        <member name="P:pmml4net.ModelElement.MiningSchema">
+            <summary>
+            Mining schema for this model.
+            </summary>
+        </member>
+        <member name="M:pmml4net.MiningModel.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load MiningModel node from XmlElement of PMML file
+            </summary>
+            <param name="node">Xml PMML file to read</param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.MiningModel.Score(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Scoring with Model
+            </summary>
+            <param name="dict">Values</param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.MiningModel.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.MiningModel.Segmentation">
+            <summary>
+            A <see cref="P:pmml4net.MiningModel.Segmentation"/> element contains several <see cref="T:pmml4net.Segment">Segments</see> and a model combination method.
+            Each Segment includes a PREDICATE element specifying the conditions under which that segment is to be used.
+            </summary>
+        </member>
+        <member name="T:pmml4net.MiningSchema">
+            <summary>
+            The MiningSchema is the Gate Keeper for its model element. All data entering a model must pass through the MiningSchema. 
+            Each model element contains one MiningSchema which lists fields as used in that model. While the MiningSchema contains 
+            information that is specific to a certain model, the DataDictionary contains data definitions which do not vary per 
+            model. The main purpose of the MiningSchema is to list the fields that have to be provided in order to apply the model.
+            
+            MiningFields also define the usage of each field (active, supplementary, predicted, ...) as well as policies for treating 
+            missing, invalid or outlier values.
+            </summary>
+        </member>
+        <member name="M:pmml4net.MiningSchema.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load mining schema from xmlnode
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.MiningSchema.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.MiningSchema.MiningFields">
+            <summary>
+            Mining fields.
+            </summary>
+        </member>
+        <member name="T:pmml4net.MissingValueStrategy">
+            <summary>
+            Description of MissingValueStrategy.
+            </summary>
+        </member>
+        <member name="F:pmml4net.MissingValueStrategy.LastPrediction">
+            <summary>
+            If a Node's predicate evaluates to UNKNOWN while traversing the tree, evaluation is stopped and the current 
+            winner is returned as the final prediction.
+            </summary>
+        </member>
+        <member name="F:pmml4net.MissingValueStrategy.NullPrediction">
+            <summary>
+            If a Node's predicate value evaluates to UNKNOWN while traversing the tree, abort the scoring process and give no prediction.
+            </summary>
+        </member>
+        <member name="F:pmml4net.MissingValueStrategy.DefaultChild">
+            <summary>
+            If a Node's predicate value evaluates to UNKNOWN while traversing the tree, evaluate the attribute defaultChild 
+            which gives the child to continue traversing with. Requires the presence of the attribute defaultChild in every non-leaf Node.
+            </summary>
+        </member>
+        <member name="F:pmml4net.MissingValueStrategy.WeightedConfidence">
+            <summary>
+            If a Node's predicate value evaluates to UNKNOWN while traversing the tree, the confidences for each class is calculated 
+            from scoring it and each of its sibling Nodes in turn (excluding any siblings whose predicates evaluate to FALSE).
+            The confidences returned for each class from each sibling Node that was scored are weighted by the proportion of the 
+            number of records in that Node, then summed to produce a total confidence for each class. The winner is the class with 
+            the highest confidence. Note that weightedConfidence should be applied recursively to deal with situations where 
+            several predicates within the tree evaluate to UNKNOWN during the scoring of a case.
+            </summary>
+        </member>
+        <member name="F:pmml4net.MissingValueStrategy.AggregateNodes">
+            <summary>
+            If a Node's predicate value evaluates to UNKNOWN while traversing the tree, we consider evaluation of the Node's predicate
+            being TRUE and follow this Node. In addition, subsequent Nodes to the initial Node are evaluated as well. This procedure is 
+            applied recursively for each Node being evaluated until a leaf Node is reached. All leaf Nodes being reached by this 
+            procedure are aggregated such that for each value attribute of such a leaf Node's ScoreDistribution element the 
+            corresponding recordCount attribute values are accumulated. The value associated with the highest recordCount accumulated 
+            through this procedure is predicted.
+            The basic idea of missingValueStrategy aggregateNodes is to aggregate all leaf Nodes which may be reached by a record with 
+            one or more missing values considering all possible values. Strategy aggregateNodes calculates a virtual Node and predicts 
+            a score according to this virtual Node. Requires the presence of attribute recordCount in all ScoreDistribution elements.
+            </summary>
+        </member>
+        <member name="F:pmml4net.MissingValueStrategy.None">
+            <summary>
+            Comparisons with missing values other than checks for missing values always evaluate to FALSE.
+            </summary>
+        </member>
+        <member name="T:pmml4net.MultipleModelMethod">
+             <summary>
+             The model combination methods listed above are applicable as follows:
+             selectFirst is applicable to any model type. Simply use the first model for which the predicate in the Segment evaluates to true.
+             selectAll is applicable to any model type. All models for which the predicate in the Segment evaluates to true are evaluated. The Output element should be used to specify inclusion of a segment id in the evaluation results so as to match results with the associated model segment. The PMML standard does not specify a mechanism for returning more than one value per record scored. Different implementations may choose to implement returning multiple values for a single record differently.
+             modelChain is applicable to any model type. During scoring, Segments whose Predicates evaluate to TRUE are executed in the order they appear in the PMML. The OutputFields from one model element can be passed as input to the MiningSchema of subsequent models. OutputFields from Segments whose Predicates evaluate to false are, by convention, to be treated by subsequent Segments as missing values. In this way, the MiningSchema's missing value handling features can be used to handle this missing input as appropriate. Since each Segment is executed in order, an OutputField must appear in a Segment before it can be used in the MiningSchema of a subsequent Segment. Loops are not possible. The results provided from a modelChain MiningModel are the results from the last Segment executed in the chain (i.e., the last Segment whose predicate evaluates to true).
+             For clustering models only majorityVote, weightedMajorityVote, selectFirst, or selectAll can be used. In case of majorityVote the cluster ID that was selected by the largest number of models wins. For weightedMajorityVote the weights specified in Segment elements are used, and the cluster ID with highest total weight wins.
+             For regression models only average, weightedAverage, median, sum, selectFirst, or selectAll are applicable. The first four methods are applied to the predicted values of all models for which the predicate evaluates to true.
+             For classification models all the combination methods, except for sum, can be used. Note that average, weightedAverage, median, and max are applied to the predicted probabilities of target categories in each of the models used for the case, then the winning category is selected based on the highest combined probability, while majorityVote and weightedMajorityVote use the predicted categories from all applicable models and select the one based on the models' "votes".
+             
+            OutputFields contained at top level MiningModel element apply to the winning Segment selected by the multipleModelMethod attribute (selectFirst, selectAll, majorityVote, modelChain, etc.) and the RESULT-FEATURE entityId returns the id of the winning segment. OutputFields within Segments allow for results specific to that segment to be returned. Since the Segment id attribute is optional, if it is not specified, Segements are identified by an implicit 1-based index, indicating the position in which each segment appears in the model.
+             Since identical OutputField elements can be duplicated across different segments, the OutputField that is used to return results is the OutputField that comes from the Segment selected by the multipleModelMethod attribute (selectFirst, selectAll, majorityVote, modelChain, etc.).
+             
+             A MiningModel may contain Segments that also contain a MiningModel element. For example, the Model Composition approach allows Regression models to be selected using a DecisionTree. When the DecisionTree cannot or should not be implemented using Segment Predicates, the equivalent implementation using Segmentation would have a top-level MiningModel with two segments in a chain: The first Segment would implement the TreeModel and its result would be passed to the second Segment which contains a MiningModel which uses the TreeModel output to select one of it's Regression model Segments. This is the fifth example below, which shows how to pass the output of a Segment as an input to a Segment that contains a MiningModel.
+             
+             It should be noted that a more efficient approach to implementing the Model Composition approach using Segmentation is shown in the sixth example, which does not require a MiningModel within a MiningModel.
+             </summary>
+        </member>
+        <member name="F:pmml4net.MultipleModelMethod.MajorityVote">
+            <summary>
+            For clustering models only majorityVote, weightedMajorityVote, selectFirst, or selectAll can be used. In case of majorityVote the cluster ID that was selected by the largest number of models wins. For weightedMajorityVote the weights specified in Segment elements are used, and the cluster ID with highest total weight wins.
+            </summary>
+        </member>
+        <member name="F:pmml4net.MultipleModelMethod.WeightedMajorityVote">
+            <summary>
+            For clustering models only majorityVote, weightedMajorityVote, selectFirst, or selectAll can be used. In case of majorityVote the cluster ID that was selected by the largest number of models wins. For weightedMajorityVote the weights specified in Segment elements are used, and the cluster ID with highest total weight wins.
+            </summary>
+        </member>
+        <member name="F:pmml4net.MultipleModelMethod.Average">
+            <summary>
+            For classification models all the combination methods, except for sum, can be used. Note that average, weightedAverage, median, and max are applied to the predicted probabilities of target categories in each of the models used for the case, then the winning category is selected based on the highest combined probability, while majorityVote and weightedMajorityVote use the predicted categories from all applicable models and select the one based on the models' "votes".
+            </summary>
+        </member>
+        <member name="F:pmml4net.MultipleModelMethod.WeightedAverage">
+            <summary>
+            For classification models all the combination methods, except for sum, can be used. Note that average, weightedAverage, median, and max are applied to the predicted probabilities of target categories in each of the models used for the case, then the winning category is selected based on the highest combined probability, while majorityVote and weightedMajorityVote use the predicted categories from all applicable models and select the one based on the models' "votes".
+            </summary>
+        </member>
+        <member name="F:pmml4net.MultipleModelMethod.Median">
+            <summary>
+            For classification models all the combination methods, except for sum, can be used. Note that average, weightedAverage, median, and max are applied to the predicted probabilities of target categories in each of the models used for the case, then the winning category is selected based on the highest combined probability, while majorityVote and weightedMajorityVote use the predicted categories from all applicable models and select the one based on the models' "votes".
+            </summary>
+        </member>
+        <member name="F:pmml4net.MultipleModelMethod.Max">
+            <summary>
+            For classification models all the combination methods, except for sum, can be used. Note that average, weightedAverage, median, and max are applied to the predicted probabilities of target categories in each of the models used for the case, then the winning category is selected based on the highest combined probability, while majorityVote and weightedMajorityVote use the predicted categories from all applicable models and select the one based on the models' "votes".
+            </summary>
+        </member>
+        <member name="F:pmml4net.MultipleModelMethod.Sum">
+            <summary>
+            For classification models all the combination methods, except for sum, can be used. Note that average, weightedAverage, median, and max are applied to the predicted probabilities of target categories in each of the models used for the case, then the winning category is selected based on the highest combined probability, while majorityVote and weightedMajorityVote use the predicted categories from all applicable models and select the one based on the models' "votes".
+            </summary>
+        </member>
+        <member name="F:pmml4net.MultipleModelMethod.SelectFirst">
+            <summary>
+            selectFirst is applicable to any model type. Simply use the first model for which the predicate in the Segment evaluates to true.
+            </summary>
+        </member>
+        <member name="F:pmml4net.MultipleModelMethod.SelectAll">
+            <summary>
+            selectAll is applicable to any model type. All models for which the predicate in the Segment evaluates to true are evaluated.
+            The Output element should be used to specify inclusion of a segment id in the evaluation results so as to match results with 
+            the associated model segment. The PMML standard does not specify a mechanism for returning more than one value per record scored.
+            Different implementations may choose to implement returning multiple values for a single record differently.
+            </summary>
+        </member>
+        <member name="F:pmml4net.MultipleModelMethod.ModelChain">
+            <summary>
+            modelChain is applicable to any model type. During scoring, Segments whose Predicates evaluate to TRUE are executed in the 
+            order they appear in the PMML. The OutputFields from one model element can be passed as input to the MiningSchema of 
+            subsequent models. OutputFields from Segments whose Predicates evaluate to false are, by convention, to be treated by 
+            subsequent Segments as missing values. In this way, the MiningSchema's missing value handling features can be used to 
+            handle this missing input as appropriate. Since each Segment is executed in order, an OutputField must appear in a Segment 
+            before it can be used in the MiningSchema of a subsequent Segment. Loops are not possible. The results provided from a 
+            modelChain MiningModel are the results from the last Segment executed in the chain (i.e., the last Segment whose predicate 
+            evaluates to true).
+            </summary>
+        </member>
+        <member name="T:pmml4net.Node">
+            <summary>
+            Description of Node.
+            </summary>
+        </member>
+        <member name="M:pmml4net.Node.#ctor(pmml4net.Predicate)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:pmml4net.Node.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load Node from XmlNode
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.Node.Evaluate(pmml4net.Node,pmml4net.MissingValueStrategy,pmml4net.NoTrueChildStrategy,System.Collections.Generic.Dictionary{System.String,System.Object},pmml4net.ScoreResult)">
+            <summary>
+            Scoring with Tree Model
+            </summary>
+            <param name="root">Parent node</param>
+            <param name="missingvalueStr">Missing value strategy to evaluate this node.</param>
+            <param name="noTrueChildStr">Strategy to evaluate this node if no child are true</param>
+            <param name="dict">Values</param>
+            <param name="res" >Result to return</param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.Node.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.Node.Id">
+            <summary>
+            The value of id serves as a unique identifier for any given Node within the tree model.
+            </summary>
+        </member>
+        <member name="P:pmml4net.Node.Score">
+            <summary>
+            score of this node
+            </summary>
+        </member>
+        <member name="P:pmml4net.Node.RecordCount">
+            <summary>
+            The value of recordCount in a Node serves as a base size for recordCount values in ScoreDistribution elements.
+            These numbers do not necessarily determine the number of records which have been used to build/train the model.
+            Nevertheless, they allow to determine the relative size of given values in a ScoreDistribution as well as the 
+            relative size of a Node when compared to the parent Node.
+            </summary>
+        </member>
+        <member name="P:pmml4net.Node.DefaultChild">
+            <summary>
+            Only applicable when missingValueStrategy is set to defaultChild in the TreeModel element.
+            Gives the id of the child node to use when no predicates can be evaluated due to missing values.
+            Note that only Nodes which are immediate children of the respective Node can be referenced.
+            </summary>
+        </member>
+        <member name="P:pmml4net.Node.Nodes">
+            <summary>
+            siblings of this node
+            </summary>
+        </member>
+        <member name="P:pmml4net.Node.Predicate">
+            <summary>
+            Predicates of this node
+            </summary>
+        </member>
+        <member name="P:pmml4net.Node.ScoreDistributions">
+            <summary>
+            siblings of this node
+            </summary>
+        </member>
+        <member name="T:pmml4net.NoTrueChildStrategy">
+            <summary>
+            During the scoring of a case, if the scoring reaches an internal Node at which none of the subnodes' 
+            predicates evaluate to TRUE, and no missing value handling strategy (if defined) is invoked for any 
+            of these subnodes, this optional attribute of TreeModel determines what to do next
+            </summary>
+        </member>
+        <member name="F:pmml4net.NoTrueChildStrategy.ReturnNullPrediction">
+            <summary>
+            No prediction is returned (this is the default behaviour)
+            </summary>
+        </member>
+        <member name="F:pmml4net.NoTrueChildStrategy.ReturnLastPrediction">
+            <summary>
+            If the parent has a score attribute return the value of this attribute. Otherwise, no prediction is returned.
+            </summary>
+        </member>
+        <member name="T:pmml4net.Optype">
+            <summary>
+            Description of Optype.
+            </summary>
+        </member>
+        <member name="F:pmml4net.Optype.categorical">
+            <summary>
+            Categorical field values can only be tested for equality.
+            </summary>
+        </member>
+        <member name="F:pmml4net.Optype.ordinal">
+            <summary>
+            ordinal field values can be tested for equality and have an order defined.
+            </summary>
+        </member>
+        <member name="F:pmml4net.Optype.continuous">
+            <summary>
+            Values of continuous fields can be used with arithmetic operators.
+            </summary>
+        </member>
+        <member name="T:pmml4net.Pmml">
+            <summary>
+            Description of Pmml.
+            </summary>
+        </member>
+        <member name="M:pmml4net.Pmml.save(System.String)">
+            <summary>
+            Save pmml file
+            </summary>
+            <param name="path">Path of the PMML file</param>
+        </member>
+        <member name="M:pmml4net.Pmml.save(System.IO.FileInfo)">
+            <summary>
+            Save pmml file
+            </summary>
+            <param name="info">Informations about the PMML file to read></param>
+        </member>
+        <member name="M:pmml4net.Pmml.save(System.Xml.XmlWriter)">
+            <summary>
+            Save pmml file
+            </summary>
+            <param name="writer">Xml PMML file to read></param>
+        </member>
+        <member name="M:pmml4net.Pmml.loadModels(System.String)">
+            <summary>
+            Load pmml file
+            </summary>
+            <param name="path">Path of the PMML file</param>
+        </member>
+        <member name="M:pmml4net.Pmml.loadModels(System.IO.FileInfo)">
+            <summary>
+            Load pmml file
+            </summary>
+            <param name="info">Informations about the PMML file to read></param>
+        </member>
+        <member name="M:pmml4net.Pmml.loadModels(System.Xml.XmlDocument)">
+            <summary>
+            Load pmml file
+            </summary>
+            <param name="xml">Xml PMML file to read></param>
+        </member>
+        <member name="M:pmml4net.Pmml.getByName(System.String)">
+            <summary>
+            Get a model by it's name.
+            </summary>
+            <param name="name">name of the model</param>
+            <returns></returns>
+        </member>
+        <member name="P:pmml4net.Pmml.DataDictionary">
+            <summary>
+            Data dictionary.
+            </summary>
+        </member>
+        <member name="P:pmml4net.Pmml.Models">
+            <summary>
+            Model in pmml file.
+            </summary>
+        </member>
+        <member name="T:pmml4net.PmmlException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:pmml4net.PmmlException.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:pmml4net.PmmlException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:pmml4net.PmmlException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:pmml4net.PmmlException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            This constructor is needed for serialization.
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:pmml4net.PredicateResult">
+            <summary>
+            Description of PredicateResult.
+            </summary>
+        </member>
+        <member name="F:pmml4net.PredicateResult.True">
+            <summary>
+            true = predicate is ok
+            </summary>
+        </member>
+        <member name="F:pmml4net.PredicateResult.False">
+            <summary>
+            false = predicate is not true
+            </summary>
+        </member>
+        <member name="F:pmml4net.PredicateResult.Unknown">
+            <summary>
+            default unspecified value
+            </summary>
+        </member>
+        <member name="T:pmml4net.ScoreDistribution">
+            <summary>
+            An element of Node to represent segments of the score that a Node predicts in a classification model.
+            If the Node holds an enumeration, each entry of the enumeration is stored in one ScoreDistribution element.
+            </summary>
+        </member>
+        <member name="M:pmml4net.ScoreDistribution.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load Node from XmlNode
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.ScoreDistribution.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.ScoreDistribution.Value">
+            <summary>
+            This attribute of ScoreDistribution is the label in a classification model.
+            </summary>
+        </member>
+        <member name="P:pmml4net.ScoreDistribution.RecordCount">
+            <summary>
+            This attribute of ScoreDistribution is the size (in number of records) associated with the value attribute.
+            </summary>
+        </member>
+        <member name="P:pmml4net.ScoreDistribution.Confidence">
+            <summary>
+            This optional attribute of ScoreDistribution assigns a confidence to a given prediction class for this tree node.
+            Confidences are similar to probabilities but more relaxed. The confidences may not necessarily sum to 1 across the 
+            different classes, like probabilities would. Confidences should normally lie in the range 0.0 to 1.0 though.
+            In tree models, using the laplace correction results in a confidence rather than a probability 
+            (the confidences sum to less than 1.0).
+            </summary>
+        </member>
+        <member name="P:pmml4net.ScoreDistribution.Probability">
+            <summary>
+            This optional attribute assigns a predicted probability for the given value within the node. If not specified, 
+            the predicted probability is calculated from the record counts. If defined for any class label, it must be defined 
+            for all and the predicted probabilities must sum to 1
+            </summary>
+        </member>
+        <member name="T:pmml4net.ScoreResult">
+            <summary>
+            Description of ScoreResult.
+            </summary>
+        </member>
+        <member name="M:pmml4net.ScoreResult.#ctor(System.String,System.Object)">
+            <summary>
+            Make result with data
+            </summary>
+            <param name="p_name"></param>
+            <param name="p_value"></param>
+        </member>
+        <member name="P:pmml4net.ScoreResult.Value">
+            <summary>
+            Value of score
+            </summary>
+        </member>
+        <member name="P:pmml4net.ScoreResult.Confidence">
+            <summary>
+            Confidence of score
+            </summary>
+        </member>
+        <member name="P:pmml4net.ScoreResult.Nodes">
+            <summary>
+            Node which validate
+            </summary>
+        </member>
+        <member name="T:pmml4net.Segment">
+            <summary>
+            Description of Segment.
+            </summary>
+        </member>
+        <member name="M:pmml4net.Segment.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load Segmentation node from XmlElement of PMML file
+            </summary>
+            <param name="node">Xml PMML file to read</param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.Segment.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.Segment.Predicate">
+            <summary>
+            Predicate of this segment
+            </summary>
+        </member>
+        <member name="P:pmml4net.Segment.Model">
+            <summary>
+            The Segment element is used to tag each model that can be combined as part of an ensemble or associated with a 
+            population segment. A multiple model combination method must be specified using multipleModelMethod attribute 
+            in Segmentation element.
+            </summary>
+        </member>
+        <member name="T:pmml4net.Segmentation">
+            <summary>
+            Description of Segmentation.
+            </summary>
+        </member>
+        <member name="M:pmml4net.Segmentation.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load Segmentation node from XmlElement of PMML file
+            </summary>
+            <param name="node">Xml PMML file to read</param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.Segmentation.MultipleModelMethodfromString(System.String)">
+            <summary>
+            Parse <see cref="P:pmml4net.Segmentation.MultipleModelMethod">MultipleModelMethod</see> from string.
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.Segmentation.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:pmml4net.Segmentation.MultipleModelMethodToString(pmml4net.MultipleModelMethod)">
+            <summary>
+            Convert MultipleModelMethod to string
+            </summary>
+            <param name="val"></param>
+            <returns></returns>
+        </member>
+        <member name="P:pmml4net.Segmentation.MultipleModelMethod">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:pmml4net.Segmentation.Segments">
+            <summary>
+            The Segment element is used to tag each model that can be combined as part of an ensemble or associated with a population segment.
+            </summary>
+        </member>
+        <member name="T:pmml4net.SimplePredicate">
+            <summary>
+            Description of SimplePredicate.
+            </summary>
+        </member>
+        <member name="M:pmml4net.SimplePredicate.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load Node from XmlNode
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.SimplePredicate.Evaluate(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Test predicate
+            </summary>
+            <param name="dict"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.SimplePredicate.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.SimplePredicate.Field">
+            <summary>
+            This attribute of the SimplePredicate element is the name attribute of a MiningField or a DerivedField from
+            TransformationDictionary or LocalTransformations. For Predicates contained within the Segment elements of 
+            MiningModels that employ Segmentation's modelChain MULTIPLE-MODEL-METHOD approach, field can also refer to 
+            an OutputField from an earlier Segment.
+            </summary>
+        </member>
+        <member name="P:pmml4net.SimplePredicate.Operator">
+            <summary>
+            This attribute of SimplePredicate is one of the six pre-defined comparison operators.
+            <code>
+            Operator	Math Symbol
+            equal	=
+            notEqual	≠
+            lessThan	&lt;
+            lessOrEqual	≤
+            greaterThan	>
+            greaterOrEqual	≥
+            </code>
+            </summary>
+        </member>
+        <member name="P:pmml4net.SimplePredicate.Value">
+            <summary>
+            This attribute of <code>SimplePredicate</code> element is the information to evaluate / compare against.
+            </summary>
+        </member>
+        <member name="T:pmml4net.SimpleSetPredicate">
+            <summary>
+            Description of SimpleSetPredicate.
+            </summary>
+        </member>
+        <member name="M:pmml4net.SimpleSetPredicate.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load Node from XmlNode
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.SimpleSetPredicate.Evaluate(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Test predicate
+            </summary>
+            <param name="dict"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.SimpleSetPredicate.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.SimpleSetPredicate.Field">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:pmml4net.SimpleSetPredicate.BooleanOperator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:pmml4net.TreeModel">
+            <summary>
+            Description of TreeModel.
+            </summary>
+        </member>
+        <member name="M:pmml4net.TreeModel.#ctor(pmml4net.MiningFunction)">
+            <summary>
+            
+            </summary>
+            <param name="functionName"></param>
+        </member>
+        <member name="M:pmml4net.TreeModel.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:pmml4net.TreeModel.Score(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Scoring with Tree Model
+            </summary>
+            <param name="dict">Values</param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.TreeModel.loadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Load tree model from xmlnode
+            </summary>
+            <param name="node"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.TreeModel.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="P:pmml4net.TreeModel.MissingValueStrategy">
+            <summary>
+            Defines a strategy for dealing with missing values.
+            </summary>
+        </member>
+        <member name="P:pmml4net.TreeModel.NoTrueChildStrategy">
+            <summary>
+            Defines what to do in situations where scoring cannot reach a leaf node.
+            </summary>
+        </member>
+        <member name="P:pmml4net.TreeModel.Node">
+            <summary>
+            Root node of this model.
+            </summary>
+        </member>
+        <member name="T:pmml4net.TruePredicate">
+            <summary>
+            Description of TruePredicate.
+            </summary>
+        </member>
+        <member name="M:pmml4net.TruePredicate.Evaluate(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="dict"></param>
+            <returns></returns>
+        </member>
+        <member name="M:pmml4net.TruePredicate.save(System.Xml.XmlWriter)">
+            <summary>
+            
+            </summary>
+            <param name="writer"></param>
+        </member>
+    </members>
+</doc>

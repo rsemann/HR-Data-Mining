@@ -1,0 +1,40 @@
+﻿@model MineradorRH.Models.DicionarioAgrupador
+
+@{
+    ViewBag.Title = "Deletar sinônimo";
+}
+
+<h2>Deletar sinônimo</h2>
+
+<h3>Você deseja realmente excluir este registro?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Palavra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Palavra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PalavraSinonimo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PalavraSinonimo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-success" />
+            <a class="btn btn-default" href="@Url.Action("Index", new { id = Model.PalavraAgrupadoraID })">Cancelar</a>
+        </div>
+    }
+</div>

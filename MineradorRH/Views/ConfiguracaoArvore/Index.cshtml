@@ -1,0 +1,67 @@
+﻿@using MineradorRH.Extensions
+@model IEnumerable<MineradorRH.Models.ConfiguracaoArvore>
+
+@{
+    ViewBag.Title = "Árvore";
+}
+
+<h2>Árvore geradora</h2>
+<hr />
+
+
+<div class="container">
+    <p style="float: left">
+        <a title="Novo" class="glyphicon glyphicon-plus" href="@Url.Action("Create")" style="cursor: pointer;font-size:18px"></a>
+    </p>
+    <table id="table"
+           data-toggle="table"
+           data-sort-name="dataCriacao"
+           data-pagination="true"
+           data-search="true"
+           data-sort-order="desc">
+        <thead>
+            <tr>
+                <th style="width: 160px"></th>
+                <th data-sortable="true" data-field="nome">
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th data-sortable="true" data-field="dataCriacao">
+                    @Html.DisplayNameFor(model => model.DataCriacao)
+                </th>
+                <th data-sortable="true" data-field="sql">
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a title="Detalhes" class="glyphicon glyphicon-search" href="@Url.Action("Details", new { id = item.ID })" style="cursor: pointer"></a>
+                    <a title="Editar" class="glyphicon glyphicon-edit" href="@Url.Action("Edit", new { id = item.ID })" style="cursor: pointer"></a>
+                    <a title="Deletar" class="glyphicon glyphicon-trash" href="@Url.Action("Delete", new { id = item.ID })" style="cursor: pointer"></a>
+                    <a title="Editar os atributos" class="glyphicon glyphicon-th-list" href="@Url.Action("Index", "ConfiguracaoAtributo", new { ArvoreId = item.ID })" style="cursor: pointer"></a>
+                    <a title="Agendamento" class="glyphicon glyphicon-time" href="@Url.Action("Index", "Agendamento", new { ArvoreId = item.ID })" style="cursor: pointer"></a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataCriacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+@section Scripts {
+
+    <script>
+    var $table = $('#table');
+    $(function () {
+    });
+    </script>
+}

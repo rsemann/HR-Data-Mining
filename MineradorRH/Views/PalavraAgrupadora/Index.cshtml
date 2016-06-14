@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MineradorRH.Models.PalavraAgrupadora>
+
+@{
+    ViewBag.Title = "Agrupadores texto";
+}
+
+<h2>Agrupadores texto</h2>
+<hr />
+
+<div class="container">
+    <p style="float: left">
+        <a title="Novo" class="glyphicon glyphicon-plus" href="@Url.Action("Create")" style="cursor: pointer;font-size:18px"></a>
+    </p>
+    <table id="table"
+           data-toggle="table"
+           data-sort-name="agrupador"
+           data-pagination="true"
+           data-search="true"
+           data-sort-order="desc">
+        <thead>
+            <tr>
+                <th></th>
+                <th data-sortable="true" data-field="agrupador">
+                    @Html.DisplayNameFor(model => model.Palavra)
+                </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="width: 110px">
+                    <a title="Detalhes" class="glyphicon glyphicon-search" href="@Url.Action("Details", new { id = item.ID })" style="cursor: pointer"></a>
+                    <a title="Editar" class="glyphicon glyphicon-edit" href="@Url.Action("Edit", new { id = item.ID })" style="cursor: pointer"></a>
+                    <a title="Deletar" class="glyphicon glyphicon-trash" href="@Url.Action("Delete", new { id = item.ID })" style="cursor: pointer"></a>
+                    <a title="Dicionário sinônimos" class="glyphicon glyphicon-th-list" href="@Url.Action("Index", "DicionarioAgrupador", new { id = item.ID })" style="cursor: pointer"></a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Palavra)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+@section Scripts {
+
+    <script>
+    var $table = $('#table');
+    $(function () {
+    });
+    </script>
+}
